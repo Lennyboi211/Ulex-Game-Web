@@ -1,0 +1,133 @@
+<title>Soggy Cat</title>
+<!-- Tab links -->
+<div class="tab">
+  <button class="tablinks" onclick="openCity(event, 'Home')"><font face="arial" size="10px" color="0000">Home</font></button>
+  <button class="tablinks" onclick="openCity(event, 'Cats')"><font face="arial" size="10px" color="0000">Cats</font></button>
+  <button class="tablinks" onclick="openCity(event, 'About')"><font face="arial" size="10px" color="0000">About</font></button>
+  <button class="tablinks" onclick="openCity(event, 'Forum')"><font face="arial" size="10px" color="0000">Forum</font></button>
+  <button class="tablinks" onclick="openCity(event, 'Comics')"><font face="arial" size="10px" color="0000">Comics</font></button>
+  <button class="tablinks" onclick="openCity(event, 'Animations')"><font face="arial" size="10px" color="0000">Animations</font></button>
+  <button class="tablinks" onclick="openCity(event, 'Art')"><font face="arial" size="10px" color="0000">Art</font></button>
+  <button class="tablinks" onclick="openCity(event, 'testing')"><font face="arial" size="10px" color="0000">testing</font></button>
+</div>
+
+<!-- Tab content -->
+	<div id="Home" class="tabcontent">
+	  <h2>Soggy Cat</h2>
+	  <p><font face="arial" size="10px" color="0000">  → →→→→→→→ →→ <i> →</i></font></p>
+	</div>
+
+<div id="testing" class="tabcontent">
+	  <h2></h2>
+	  <p><font face="arial" size="10px" color="0000">Cat<b> Cat<i> CAT</b></i></font></p>
+	</div>
+
+<div id="About" class="tabcontent">
+	  <h2>About Us</h2>
+	  <p><font face="arial" size="10px" color="0000">    </font></p>
+	</div>
+
+<div id="Forum" class="tabcontent">
+	  <p><font face="arial" size="10px" color="0000">This is our forum:</font></p>
+</div>
+	
+<div id="Comics" class="tabcontent">
+      <h2>Our Comics</h2>
+	  <p><font face="arial" size="10px" color="0000">Here are some comics submited by users</font></p>
+	</div>
+	
+<div id="Art" class="tabcontent">
+      <h2>Art</h2>
+	  <p><font face="arial" size="10px" color="0000">Here is some art submited by users</font></p>
+	</div>
+	
+<div id="Animations" class="tabcontent">
+	  <h22>Animations</h2>
+	  <video width="400" height="300" controls>
+  <source src="EYBALL LOVERS.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+	</div>
+	
+<div id="Cats" class="tabcontent">
+  <h3>
+<p><font face="arial" size="8px" color="#ff6565">Here are some cat pictures: </font> </p>
+<img src="chubby calico.jpg" alt="Description for image" width="250" height="200" img style='border:5px solid #00008B'> <img src="tortoise shell.jpg" alt="Description for image" width="250" height="200" img style='border:5px solid #00008B'> <img src="calico in da houuuuusss.jpg" alt="Description for image" width="250" height="200" img style='border:5px solid #00008B'> <img src="calico in da houuuuusss.jpg" alt="Description for image" width="250" height="200" img style='border:5px solid #00008B'> <img src="" alt="Description for image" width="250" height="200" img style='border:5px solid #00008B'>	
+<style>
+body {
+  background-image: url('cool-background.png');
+  background-size: cover;
+}
+</style></h3>
+  <p> </p>
+</div>
+
+<style>
+ /* Style the tab */
+.tab {
+  overflow: hidden;
+  border: 1px solid #ccc;
+  background-color: #00;
+}
+
+/* Style the buttons that are used to open the tab content */
+.tab button {
+  background-color: inherit;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  transition: 0.3s;
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+  background-color: #30D5C8;
+}
+
+/* Create an active/current tablink class */
+.tab button.active {
+  background-color: #ccc;
+}
+
+/* Style the tab content */
+.tabcontent {
+  display: none;
+  padding: 6px 12px;
+  border: 1px solid #ccc;
+  border-top: none;
+} 
+.tabcontent {
+  animation: fadeEffect 1s; /* Fading effect takes 1 second */
+}
+
+/* Go from zero to full opacity */
+@keyframes fadeEffect {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+</style>
+
+<script>
+function openCity(evt, cityName) {
+  // Declare all variables
+  var i, tabcontent, tablinks;
+
+  // Get all elements with class="tabcontent" and hide them
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+
+  // Get all elements with class="tablinks" and remove the class "active"
+  tablinks = document.getElementsByClassName("tablinks");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" active", "");
+  }
+
+  // Show the current tab, and add an "active" class to the button that opened the tab
+  document.getElementById(cityName).style.display = "block";
+  evt.currentTarget.className += " active";
+} 
+</script>
