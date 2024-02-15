@@ -1,10 +1,10 @@
 <title>Soggy Cat</title>
 <!-- Tab links -->
 <div class="tab">
-  <button class="tablinks" onclick="openCity(event, 'Home')"><font face="arial" size="10px" color="0000">Home</font></button>
-  <button class="tablinks" onclick="openCity(event, 'Forum')"><font face="arial" size="10px" color="0000">Forum</font></button>
-  <button class="tablinks" onclick="openCity(event, 'About')"><font face="arial" size="10px" color="0000">About</font></button>
-  <button class="tablinks" onclick="openCity(event, 'Register Account')"><font face="arial" size="10px" color="0000">Register Account</font></button>
+  <button class="tablinks" onclick="openContents(event, 'Home')"><font face="arial" size="10px" color="0000">Home</font></button>
+  <button class="tablinks" onclick="openContents(event, 'Forum')"><font face="arial" size="10px" color="0000">Forum</font></button>
+  <button class="tablinks" onclick="openContents(event, 'About')"><font face="arial" size="10px" color="0000">About</font></button>
+  <button class="tablinks" onclick="openContents(event, 'Register Account')"><font face="arial" size="10px" color="0000">Register Account</font></button>
 </div>
 
 <head>
@@ -17,8 +17,8 @@
 
 <!-- Tab content -->
 	<div id="Home" class="tabcontent">
-	  <h2>Soggy Cat</h2>
-	  <p><font face="arial" size="10px" color="0000">  → →→→→→→→ →→ <i> →</i></font></p>
+	  <h2> i</h2>
+	  <p><font face="arial" size="10px" color="0000">   <i> →</i></font></p>
 	</div>
 
 
@@ -29,7 +29,42 @@
 
 <div id="Forum" class="tabcontent">
 <p><font face="arial" size="10px" color="0000">This is our forum:</font></p>
-	<div class="padlet-embed" style="border:1px solid rgba(0,0,0,0.1);border-radius:2px;box-sizing:border-box;overflow:hidden;position:relative;width:100%;"><p style="padding:0;margin:0"><iframe src="https://padlet.com/embed/27n9sfxul1149lav" frameborder="0" allow="camera;microphone;geolocation" style="width:100%;height:608px;display:block;padding:0;margin:0"></iframe></p><div style="display:flex;align-items:center;justify-content:end;margin:0;height:28px"><a href="https://padlet.com?ref=embed" style="display:block;flex-grow:0;margin:0;border:none;padding:0;text-decoration:none" target="_blank"></a></div></div>
+<h1>Chat-box (With HTML and JAVASCRIPT)</h1>
+<title>User chat</title>
+<div><input id=input placeholder="Press Enter to Send" /></div><br><br>
+Chat Output
+<div id=box></div>
+<script src=https://cdn.pubnub.com/sdk/javascript/pubnub.4.28.2.min.js></script>
+<script> (function() {
+        var pubnub = new PubNub({
+            publishKey: 'demo',
+            subscribeKey: 'demo'
+        });
+        function $(id) {
+            return document.getElementById(id);
+        }
+        var box = $('box'),
+            input = $('input'),
+            channel = '10chat-demo';
+        pubnub.addListener({
+            message: function(obj) {
+                box.innerHTML = ('' + obj.message).replace(/[<>]/g, '') + '<br>' + box.innerHTML
+            }
+        });
+        pubnub.subscribe({
+            channels: [channel]
+        });
+        input.addEventListener('keyup', function(e) {
+            if ((e.keyCode || e.charCode) === 13) {
+                pubnub.publish({
+                    channel: channel,
+                    message: input.value,
+                    x: (input.value = '')
+                });
+            }
+        });
+    })();
+</script>
 </div>
 
 	
@@ -96,15 +131,15 @@ Your browser does not support the video tag.
   animation: fadeEffect 1s; /* Fading effect takes 1 second */
 }
 
-/* Go from zero to full opacity */
+/* Go from zero to full opaContents */
 @keyframes fadeEffect {
-  from {opacity: 0;}
-  to {opacity: 1;}
+  from {opaContents: 0;}
+  to {opaContents: 1;}
 }
 </style>
 
 <script>
-function openCity(evt, cityName) {
+function openContents(evt, ContentsName) {
   // Declare all variables
   var i, tabcontent, tablinks;
 
@@ -121,7 +156,7 @@ function openCity(evt, cityName) {
   }
 
   // Show the current tab, and add an "active" class to the button that opened the tab
-  document.getElementById(cityName).style.display = "block";
+  document.getElementById(ContentsName).style.display = "block";
   evt.currentTarget.className += " active";
 } 
 </script>
